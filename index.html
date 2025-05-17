@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meirzhan Amangaliyev | Frontend Engineer</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./photo.jpeg" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div>
+          <img src="./photo.jpeg" />
+        </div>
+        <div>
+          <div class="title">
+            <h1>Meirzhan Amangaliyev</h1>
+            <button id="theme-toggle" class="theme-toggle">
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+
+          <p class="subtitle">Software Developer</p>
+          <a href="mailto:your.email@example.com" class="email-link">
+            meiirzhan04@gmail.com
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="about">
+          <h3>About Me</h3>
+          <div class="about-content">
+            <p>Hello, I'm Meirzhan</p>
+            <p>
+              I'm a passionate software developer with a focus on frontend
+              technologies. I love creating beautiful and functional web
+              applications that provide great user experiences.
+            </p>
+            <p>Feel free to contact me via links below</p>
+          </div>
+        </section>
+
+        <section class="links">
+          <div class="social-links">
+            <a
+              href="https://github.com/meirrrrr"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/meirzhan/"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="fab fa-linkedin"></i>
+              LinkedIn
+            </a>
+            <a
+              href="https://t.me/meirrrrrrrrrr"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="fab fa-telegram"></i>
+              Telegram
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const icon = themeToggle.querySelector("i");
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        icon.className = savedTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+
+        icon.className = newTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
+      });
+    </script>
+  </body>
+</html>
